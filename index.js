@@ -13,7 +13,7 @@ const commentRouter = require('./routes/comment');
 const calendarRouter = require('./routes/calendar');
 const { timeLog } = require('console');
 const { title } = require('process');
-const paymentRouter = require('./routes/payment'); // 추가
+const paymentRouter = require('./routes/payment');
 const successRouter = require('./routes/success'); // 추가
 
 const app = express();
