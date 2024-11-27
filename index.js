@@ -14,7 +14,7 @@ const calendarRouter = require('./routes/calendar');
 const { timeLog } = require('console');
 const { title } = require('process');
 const paymentRouter = require('./routes/payment');
-const successRouter = require('./routes/success'); //
+const successRouter = require('./routes/success');
 
 const app = express();
 
