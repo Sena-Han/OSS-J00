@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ossj00
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: ossj00
@@ -19,11 +19,11 @@ spec:
           image: sencream/ossj00:latest
           resources:
             limits:
-              memory: "128Mi"
-              cpu: "250m"
+              memory: "256Mi"
+              cpu: "200m"
             requests:
-              memory: "64Mi"
-              cpu: "125m"
+              memory: "128Mi"
+              cpu: "200m"
           ports:
             - containerPort: 3000
               name: ossj00
@@ -52,5 +52,3 @@ spec:
       targetPort: 3000
   selector:
     app: ossj00
-  type: LoadBalancer
-
