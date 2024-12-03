@@ -17,7 +17,13 @@ spec:
       containers:
         - name: ossj00
           image: sencream/ossj00:latest
-          imagePullPolicy: Always 
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
           ports:
             - containerPort: 3000
               name: ossj00
