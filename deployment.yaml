@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ossj00
+  labels:
+    app: ossj00
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ossj00
+  template:
+    metadata:
+      labels:
+        app: ossj00
+    spec:
+      containers:
+        - name: ossj00-test
+          image: sencream/ossj00:latest 
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          volumeMounts:
+            - name: uploads-volume
+              mountPath: /app/uploads
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+      volumes:
+        - name: uploads-volume
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ossj00
+  labels:
+    app: ossj00
+spec:
+  ports:
+    - port: 5006
+      targetPort: 3000
+  selector:
+    app: ossj00
+    tier: ossj00
+  type: LoadBalancer
