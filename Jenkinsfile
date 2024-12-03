@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PROJECT_ID = 'my-first-project-418506'
-        CLUSTER_NAME = 'kube'
+        CLUSTER_NAME = 'newk8s'
         LOCATION = 'asia-northeast3-a'
         CREDENTIALS_ID = 'gke'
     }
