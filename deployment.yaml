@@ -48,5 +48,4 @@ spec:
       targetPort: 3000
   selector:
     app: ossj00
-    tier: ossj00
   type: LoadBalancer
