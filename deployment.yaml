@@ -34,7 +34,7 @@ spec:
         - key: "node.kubernetes.io/unreachable"
           operator: "Exists"
           effect: "NoExecute"
-   strategy:
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
@@ -53,3 +53,4 @@ spec:
   selector:
     app: ossj00
   type: LoadBalancer
+
