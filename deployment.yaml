@@ -15,26 +15,12 @@ spec:
         app: ossj00
     spec:
       containers:
-        - name: ossj00-test
-          image: sencream/ossj00:latest 
+        - name: ossj00
+          image: sencream/ossj00:latest
+          imagePullPolicy: Always 
           ports:
             - containerPort: 3000
-          env:
-            - name: NODE_ENV
-              value: "production"
-          volumeMounts:
-            - name: uploads-volume
-              mountPath: /app/uploads
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-      volumes:
-        - name: uploads-volume
-          emptyDir: {}
+              name: ossj00
 ---
 apiVersion: v1
 kind: Service
