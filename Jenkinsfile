@@ -22,7 +22,7 @@ pipeline {
         stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', "${DOCKER_CREDENTIALS}") {
+                    docker.withRegistry('https://registry.hub.docker.com', 'sencream') {
                             app.push("latest")
                             app.push("${env.BUILD_ID}")
                     }
