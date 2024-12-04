@@ -6,6 +6,8 @@ metadata:
     app: ossj00
 spec:
   replicas: 3
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: ossj00
@@ -13,10 +15,12 @@ spec:
     metadata:
       labels:
         app: ossj00
+        tier: ossj00
     spec:
       containers:
         - name: ossj00
           image: sencream/ossj00:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
               name: ossj00
